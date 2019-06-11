@@ -1,6 +1,6 @@
-import { put, takeEvery } from "redux-saga/effects";
+import { put, call, takeEvery } from "redux-saga/effects";
 
-const delay = (ms) => new Promise(res => setTimeout(res,ms));
+export const delay = (ms) => new Promise(res => setTimeout(res,ms));
 
 
 export function* helloSaga() {
@@ -9,7 +9,7 @@ export function* helloSaga() {
 
 //set worker saga to perform async increment task
 export function* incrementAsync() {
-    yield delay(1000);
+    yield call(delay,1000);
     yield put({ type: 'INCREMENT' })
 }
 
